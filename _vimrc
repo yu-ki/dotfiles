@@ -1,4 +1,24 @@
 set nocompatible "vi互換性を無効
+filetype off
+if has('vim_starting')
+    set runtimepath+=~/dotfiles/vimfiles/neobundle.git
+    call neobundle#rc(expand('~/dotfiles/vimfiles/bundle/'))
+endif
+
+NeoBundle 'git://github.com/Shougo/clang_complete.git'
+NeoBundle 'git://github.com/Shougo/echodoc.git'
+NeoBundle 'git://github.com/Shougo/neocomplcache.git'
+"NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
+NeoBundle 'git://github.com/Shougo/unite.vim.git'
+NeoBundle 'git://github.com/Shougo/vim-vcs.git'
+NeoBundle 'git://github.com/Shougo/vimfiler.git'
+NeoBundle 'git://github.com/Shougo/vimshell.git'
+NeoBundle 'git://github.com/Shougo/vinarise.git'
+NeoBundle 'git://github.com/mattn/zencoding-vim.git'
+
+filetype plugin on
+filetype indent on
+
 "
 "表示系
 "
@@ -24,3 +44,6 @@ set ignorecase "検索文字列が小文字の場合は大文字小文字を区�
 set smartcase "検索文字列に大文字が含まれている場合は区別して検索する
 set wrapscan "検索時に最後まで行ったら最初に戻る
 set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
+
+"Zenconding
+let g:user_zen_setting = { 'indentation':'    ' }
